@@ -1,0 +1,37 @@
+#!/bin/sh
+# topo.txt
+
+# any empty lines and lines starting with '#' symbol is ignored
+#
+# The file should contain exactly two sections: router and link, each starting with the corresponding keyword
+#
+# router section defines topology nodes and their relative positions (e.g., to use in visualizer)
+router
+
+# each line in this section represents one router and should have the following data
+# node  comment     yPos    xPos
+consumer1   NA        1       1 
+mrouter1    NA        2       2 
+
+producer1   NA        1       3 
+producer2   NA        3       3 
+producer3   NA        3       4 
+
+# Note that `node` can be any string. It is possible to access to the node by name using Names::Find, see examples.
+
+# link section defines point-to-point links between nodes and characteristics of these links
+link
+
+# Each line should be in the following format (only first two are required, the rest can be omitted)
+# srcNode   dstNode     bandwidth   metric  delay   queue
+# bandwidth: link bandwidth
+# metric: routing metric // Set real routing metrics inside simulation file! 
+# delay:  link delay	
+# queue:  MaxPackets for transmission queue on the link (both directions)
+
+consumer1	mrouter1 	100Mbps 100 5ms
+
+mrouter1	producer1  	10Mbps  100 5ms 	
+mrouter1	producer2  	10Mbps  100 5ms 	
+mrouter1	producer3  	10Mbps  100 5ms 	
+

@@ -1,0 +1,8 @@
+[submodule "ndn-cxx"]
+	path = ndn-cxx
+	url = https://github.com/schneiderklaus/ndn-cxx.git
+	branch = ndn-cxx-0.3.4-ndnSIM-pcon
+[submodule "NFD"]
+	path = NFD
+	url = https://github.com/schneiderklaus/NFD.git
+	branch = NFD-0.3.4-ndnSIM-pcon
