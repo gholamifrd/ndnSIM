@@ -31,6 +31,7 @@
 #include "../../core/model/names.h"
 #include "../../core/model/config.h"
 #include "../../network/helper/node-container.h"
+#include "ns3/core-module.h"
 
 namespace ns3 {
 
@@ -40,6 +41,10 @@ main(int argc, char* argv[])
   const std::string SCEN_NAME = SimHelper::getEnvVariableStr("SCEN_NAME", "PCON_1");
   const int RUNTIME = SimHelper::getEnvVariable("RUNTIME", 10);
   const int QUEUE_SIZE_PKTS = SimHelper::getEnvVariable("QUEUE_SIZE_PKTS", 200);
+
+  // Read optional command-line parameters (e.g., enable visualizer with ./waf --run=<> --visualize
+  CommandLine cmd;
+  cmd.Parse(argc, argv);
 
   // Set to "FIFO", "CODEL", or "PCON".
   const std::string QUEUE_TYPE = SimHelper::getEnvVariableStr("QUEUE_TYPE", "PCON");
